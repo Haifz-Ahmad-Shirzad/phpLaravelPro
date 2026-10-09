@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <!-- <link rel="stylesheet" href="./style.css" /> -->
+
+
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+    }
+
+    .hero-section {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("./images/Blog-bg.webp") center/cover;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero-section p {
+      font-size: 1.5rem;
+      color: #facc15;
+      margin-top: 10px;
+    }
+
+    .page-section {
+      padding: 40px 20px;
+      width: 100%;
+      height: max-content;
+    }
+
+    .page-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #f97316;
+    }
+
+    .blog-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .blog-card {
+      flex: 1 1 300px;
+      background: #1f2937;
+      color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 300px;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-card h3 {
+      padding: 15px;
+      font-size: 1.5rem;
+      color: #facc15;
+    }
+
+    .blog-card p {
+      padding: 0 15px;
+      font-size: 1rem;
+      color: #d1d5db;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin: 15px;
+      color: #f97316;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .read-more i {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body dir="rtl">
+  <!-- Header Section -->
+  @extends('layouts.app')
+
+  <!-- <div id="header"></div> -->
+
+  @section('content')
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>بلاګ</h1>
+    <p>زموږ وروستي مقالي او معلومات</p>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="page-section">
+    <h2>وروستي مقالي</h2>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="./images/blog1.webp" alt="د ماشینونو لپاره غوره روغن انتخاب" />
+        <div>
+          <h3>د ماشینونو لپاره غوره روغن انتخاب</h3>
+          <p>په دې مقاله کې موږ د مناسب روغن انتخاب تشریح کوو...</p>
+          <a href="#" class="read-more">نور ولولئ <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="./images/blog2.webp" alt="صنعتي ماشینونه څنګه ساتل کېږي؟" />
+        <div>
+          <h3>صنعتي ماشینونه څنګه ساتل کېږي؟</h3>
+          <p>د اوږد عمر لپاره مهم تخنیکي ټکي...</p>
+          <a href="#" class="read-more">نور ولولئ <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="./images/blog3.webp" alt="د انجن ساتنې غوره لارې" />
+        <div>
+          <h3>د انجن ساتنې غوره لارې</h3>
+          <p>د انجن د اوږد عمر لپاره غوره لارې چارې...</p>
+          <a href="#" class="read-more">نور ولولئ <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="./images/blog4.webp" alt="د تیلو د بدلولو وخت" />
+        <div>
+          <h3>د تیلو د بدلولو وخت</h3>
+          <p>کله او څنګه د تیلو بدلول اړین دي...</p>
+          <a href="#" class="read-more">نور ولولئ <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <div id="footer"></div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>

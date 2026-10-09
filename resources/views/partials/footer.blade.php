@@ -1,0 +1,48 @@
+<!-- 1.7 Footer section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- company -->
+        <div class="footer-section">
+            <h3>Atlanti Oil & Lubricants</h3>
+            <p>موږ د لوړ کیفیت مبلین او روغنیاتو عرضه کوونکي يو.</p>
+        </div>
+
+        <!-- links -->
+        <div class="footer-section">
+            <h3>لینکونه</h3>
+            <ul>
+                <li><a href="{{ url('/') }}">کور</a></li>
+                <li><a href="{{ url('about') }}">زموږ په اړه</a></li>
+                <li><a href="{{ url('products') }}">محصولات</a></li>
+                <li><a href="{{ url('contact') }}">اړیکه</a></li>
+                <li><a href="./terms.html"> د کارولو شرایط </a></li>
+                <li><a href="./privacy.html">د محرمیت پالیسي</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section">
+            <h3>اړیکه</h3>
+            <p class="contact">موبایل: 93706429910+</p>
+            <p class="contact">ایمیل: hafizahmadshirzad@gmail.com</p>
+        </div>
+
+        <!-- social -->
+        <div class="footer-section">
+            <h3>موږ تعقیب کړئ</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/atlanticlubes.ae"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCn7DjM-iqD999s8rFESRw5w/videos"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>© 2026 Atlantic Oil | ټول حقوق خوندي دي.</p>
+    </div>
+</footer>
