@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>Product Details</h1>
-
-    <p><strong>ID:</strong> 1</p>
-    <p><strong>Product Name:</strong> Sample Product</p>
-    <p><strong>Category:</strong> General</p>
-    <p><strong>Price:</strong> 100</p>
-    <p><strong>Description:</strong> Sample product description.</p>
-
-    <a href="{{ route('products.edit', 1) }}">Edit Product</a>
-    <br><br>
-    <a href="{{ route('products.index') }}">Back to Products</a>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('title', $product['name'].' | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container"><article class="crud-card crud-detail-card">
+    <img class="crud-product-image" src="{{ asset('images/white5.png') }}" alt="{{ $product['name'] }}">
+    <h1>{{ $product['name'] }}</h1>
+    <dl class="crud-detail-grid"><div class="crud-detail"><dt>Category</dt><dd>{{ $product['category'] }}</dd></div><div class="crud-detail"><dt>Type</dt><dd>{{ $product['type'] }}</dd></div><div class="crud-detail"><dt>Price</dt><dd>{{ number_format($product['price'], 2) }} AFN</dd></div><div class="crud-detail"><dt>Record ID</dt><dd>{{ $product['id'] }}</dd></div></dl>
+    <div class="form-actions"><a class="button-secondary" href="{{ route('products.index') }}">Back to products</a><a class="button" href="{{ route('products.edit', $product['id']) }}">Edit product</a></div>
+</article></div>
+@endsection

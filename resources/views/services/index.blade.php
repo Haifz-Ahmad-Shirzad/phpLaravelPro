@@ -1,54 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Services</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>All Services</h1>
-
-    <a href="{{ route('services.create') }}">Create New Service</a>
-
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Service Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Money Transfer</td>
-                <td>Domestic money transfer service</td>
-                <td>100</td>
-                <td>Active</td>
-                <td>
-                    <a href="{{ route('services.show', 1) }}">View</a>
-                    <a href="{{ route('services.edit', 1) }}">Edit</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Currency Exchange</td>
-                <td>Currency exchange service</td>
-                <td>50</td>
-                <td>Active</td>
-                <td>
-                    <a href="{{ route('services.show', 2) }}">View</a>
-                    <a href="{{ route('services.edit', 2) }}">Edit</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('title', 'Services | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container">
+    <header class="crud-page-header"><div><h1>Services</h1><p>Manage the services offered by Atlantic Oil.</p></div><a class="button" href="{{ route('services.create') }}"><i class="fas fa-plus" aria-hidden="true"></i>Add service</a></header>
+    @if(session('success'))<div class="crud-alert crud-alert--success" role="status">{{ session('success') }}</div>@endif
+    @if(session('error'))<div class="crud-alert crud-alert--error" role="alert">{{ session('error') }}</div>@endif
+    <div class="crud-card"><div class="crud-table-wrap"><table class="crud-table"><thead><tr><th>Title</th><th>Description</th><th>Actions</th></tr></thead><tbody>
+    @forelse($services as $service)
+        <tr><td class="crud-table__primary">{{ $service['title'] }}</td><td class="crud-table__muted">{{ Str::limit($service['description'], 100) }}</td><td><div class="crud-actions"><a class="action-link" href="{{ route('services.show', $service['id']) }}">View</a><a class="action-link" href="{{ route('services.edit', $service['id']) }}">Edit</a><form action="{{ route('services.destroy', $service['id']) }}" method="POST" onsubmit="return confirm('Delete this service?')">@csrf @method('DELETE')<button class="action-button action-button--danger" type="submit">Delete</button></form></div></td></tr>
+    @empty
+        <tr><td colspan="3"><div class="crud-empty"><h2>No services yet</h2><p>Add your first service to begin.</p><a class="button" href="{{ route('services.create') }}">Add first service</a></div></td></tr>
+    @endforelse
+    </tbody></table></div></div>
+</div>
+@endsection

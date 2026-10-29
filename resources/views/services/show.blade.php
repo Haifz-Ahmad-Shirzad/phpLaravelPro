@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Details</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>Service Details</h1>
-
-    <p><strong>ID:</strong> 1</p>
-    <p><strong>Service Name:</strong> Money Transfer</p>
-    <p><strong>Description:</strong> Domestic money transfer service.</p>
-    <p><strong>Price:</strong> 100</p>
-    <p><strong>Status:</strong> Active</p>
-
-    <a href="{{ route('services.edit', 1) }}">Edit Service</a>
-    <a href="{{ route('services.index') }}">Back to Services</a>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('title', $service['title'].' | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container"><article class="crud-card crud-detail-card"><p class="eyebrow" style="color:var(--blue-700)">Service #{{ $service['id'] }}</p><h1>{{ $service['title'] }}</h1><p class="crud-content">{{ $service['description'] }}</p>
+    <div class="form-actions"><a class="button-secondary" href="{{ route('services.index') }}">Back to services</a><a class="button" href="{{ route('services.edit', $service['id']) }}">Edit service</a></div>
+</article></div>
+@endsection

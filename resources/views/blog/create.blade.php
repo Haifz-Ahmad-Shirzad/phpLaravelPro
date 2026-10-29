@@ -1,45 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Blog Post</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>Create New Blog Post</h1>
-
-    <form action="#" method="POST">
-        <label for="title">Post Title:</label>
-        <input type="text" id="title" name="title">
-
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author">
-
-        <label for="category">Category:</label>
-        <select id="category" name="category">
-            <option value="">Select Category</option>
-            <option value="news">News</option>
-            <option value="finance">Finance</option>
-            <option value="updates">Updates</option>
-        </select>
-
-        <label for="content">Post Content:</label>
-        <textarea id="content" name="content"></textarea>
-
-        <label for="status">Status:</label>
-        <select id="status" name="status">
-            <option value="draft">Draft</option>
-            <option value="published">Published</option>
-        </select>
-
-        <br>
-        <button type="submit">Create Post</button>
+@extends('layouts.app')
+@section('title', 'Write a post | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container"><div class="crud-card crud-form-card"><h1>Write a post</h1><p>Share an update, tip, or article with your customers.</p>
+    @if($errors->any())<div class="crud-alert crud-alert--error" role="alert"><strong>Please review the highlighted fields.</strong></div>@endif
+    <form class="crud-form" action="{{ route('blog.store') }}" method="POST">@csrf
+        <div class="form-field"><label for="title">Title</label><input id="title" name="title" value="{{ old('title') }}" required maxlength="255" @if($errors->has('title')) aria-invalid="true" @endif>@error('title')<p class="field-error">{{ $message }}</p>@enderror</div>
+        <div class="form-field"><label for="content">Content</label><textarea id="content" name="content" required @if($errors->has('content')) aria-invalid="true" @endif>{{ old('content') }}</textarea>@error('content')<p class="field-error">{{ $message }}</p>@enderror</div>
+        <div class="form-actions"><a class="button-secondary" href="{{ route('blog.index') }}">Cancel</a><button class="button" type="submit">Publish post</button></div>
     </form>
-
-    <a href="{{ route('blog.index') }}">Back to Blog Posts</a>
-</body>
-
-</html>
+</div></div>
+@endsection

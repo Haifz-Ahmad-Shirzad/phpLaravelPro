@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Details</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>Blog Post Details</h1>
-
-    <p><strong>ID:</strong> 1</p>
-    <p><strong>Title:</strong> Introduction to Sarafi</p>
-    <p><strong>Author:</strong> Admin</p>
-    <p><strong>Category:</strong> News</p>
-    <p><strong>Status:</strong> Published</p>
-    <p><strong>Content:</strong> Welcome to the Sarafi platform. This article introduces our services and features.</p>
-
-    <a href="{{ route('blog.edit', 1) }}">Edit Post</a>
-    <a href="{{ route('blog.index') }}">Back to Blog Posts</a>
-</body>
-
-</html>
+@extends('layouts.app')
+@section('title', $post['title'].' | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container"><article class="crud-card crud-detail-card"><p class="eyebrow" style="color:var(--blue-700)">Article #{{ $post['id'] }}</p><h1>{{ $post['title'] }}</h1><div class="crud-content">{{ $post['content'] }}</div>
+    <div class="form-actions"><a class="button-secondary" href="{{ route('blog.index') }}">Back to posts</a><a class="button" href="{{ route('blog.edit', $post['id']) }}">Edit post</a></div>
+</article></div>
+@endsection

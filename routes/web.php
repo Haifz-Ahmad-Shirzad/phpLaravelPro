@@ -1,31 +1,25 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\BlogController;
 
-// Authentication pages
-Route::get('/auth/login', function () {
-    return view('auth.login');
-});
+/* Home */
+Route::get('/', fn() => view('pages.index'))->name('home');
+Route::get('/index', fn() => view('pages.index'))->name('home.alias');
 
-Route::get('/auth/signup', function () {
-    return view('auth.signup');
-});
+/* Auth (placeholder — Week 10) */
+Route::get('/auth/login', fn() => view('auth.login'))->name('login');
+Route::get('/auth/signup', fn() => view('auth.signup'))->name('signup');
 
-// Home page
-Route::get('/index', function () {
-    return view('index');
-});
+/* Informational */
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-// Informational pages
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
-
-// Resource routes
-Route::resource('products', ProductsController::class);
+/* Resources */
+Route::resource('products', ProductController::class);
 Route::resource('services', ServicesController::class);
 Route::resource('blog', BlogController::class);

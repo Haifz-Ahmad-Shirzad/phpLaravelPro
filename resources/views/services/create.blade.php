@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Service</title>
-    <link rel="stylesheet" href="{{ asset('css/crud.css') }}">
-</head>
-
-<body>
-    <h1>Create New Service</h1>
-
-    <form action="#" method="POST">
-        <label for="name">Service Name:</label>
-        <input type="text" id="name" name="name">
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"></textarea>
-
-        <label for="price">Service Price:</label>
-        <input type="number" id="price" name="price" step="0.01">
-
-        <label for="status">Status:</label>
-        <select id="status" name="status">
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-        </select>
-
-        <br>
-        <button type="submit">Create Service</button>
+@extends('layouts.app')
+@section('title', 'Add service | Atlantic Oil')
+@section('content-direction', 'ltr')
+@section('content')
+<div class="crud-container"><div class="crud-card crud-form-card"><h1>Add service</h1><p>Describe a product or service for your customers.</p>
+    @if($errors->any())<div class="crud-alert crud-alert--error" role="alert"><strong>Please review the highlighted fields.</strong></div>@endif
+    <form class="crud-form" action="{{ route('services.store') }}" method="POST">@csrf
+        <div class="form-field"><label for="title">Title</label><input id="title" name="title" value="{{ old('title') }}" required maxlength="255" @if($errors->has('title')) aria-invalid="true" @endif>@error('title')<p class="field-error">{{ $message }}</p>@enderror</div>
+        <div class="form-field"><label for="description">Description</label><textarea id="description" name="description" required @if($errors->has('description')) aria-invalid="true" @endif>{{ old('description') }}</textarea>@error('description')<p class="field-error">{{ $message }}</p>@enderror</div>
+        <div class="form-actions"><a class="button-secondary" href="{{ route('services.index') }}">Cancel</a><button class="button" type="submit">Save service</button></div>
     </form>
-
-    <a href="{{ route('services.index') }}">Back to Services</a>
-</body>
-
-</html>
+</div></div>
+@endsection

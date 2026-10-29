@@ -1,131 +1,18 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>خدمات | Atlantic Oil</title>
-    <!-- <link rel="stylesheet" href="./style.css" /> -->
-     <!-- <link rel="stylesheet" href={{ "./css/app.css" }}> -->
-     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@extends('layouts.app')
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #8b9197;
-      }
-      .hero-section {
-        background: url("./Blog4.webp") center/cover;
-        padding: 60px 20px;
-        text-align: center;
-        color: white;
-      }
-
-      .hero-section h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-      }
-
-      .hero-section p {
-        font-size: 1.2rem;
-        color: #01ffd5;
-      }
-
-      .services-section {
-        padding: 40px 20px;
-      }
-
-      .services-section h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 2rem;
-        color: #f97316;
-      }
-
-      .services-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .service-card {
-        background: #1f2937;
-        color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        width: 300px;
-        text-align: center;
-        padding: 20px;
-      }
-
-      .service-card i {
-        font-size: 3rem;
-        color: #facc15;
-        margin-bottom: 15px;
-      }
-
-      .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-      }
-
-      .service-card p {
-        font-size: 1rem;
-        color: #d1d5db;
-      }
-    </style>
-  </head>
-  <body dir="rtl">
-    <!-- Header Section -->
-    <div id="header"></div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <h1>خدمات</h1>
-      <p>زموږ د خدماتو په اړه نور معلومات ترلاسه کړئ</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section">
-      <h2>زموږ خدمات</h2>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-industry"></i>
-          <h3>صنعتي غوړ مواد</h3>
-          <p>د صنعتي ماشینونو لپاره لوړ کیفیت لرونکي غوړ مواد.</p>
-        </div>
-
-        <div class="service-card">
-          <i class="fas fa-car"></i>
-          <h3>موټري روغنیات</h3>
-          <p>د موټرو لپاره د اوږد عمر او غوره فعالیت لرونکي روغنیات.</p>
-        </div>
-
-        <div class="service-card">
-          <i class="fas fa-tools"></i>
-          <h3>تخنیکي ملاتړ</h3>
-          <p>فابریکو او صنعتي شرکتونو ته تخنیکي ملاتړ.</p>
-        </div>
-
-        <div class="service-card">
-          <i class="fas fa-truck"></i>
-          <h3>تولید او عرضه</h3>
-          <p>د نړیوالو معیارونو مطابق تولید او پر وخت عرضه.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer Section -->
-    <div id="footer"></div>
-
-    <script type="module" src="../js/script.js"></script>
-  </body>
-</html>
+@section('title', 'خدمات | Atlantic Oil & Lubricants')
+@section('content')
+<section class="site-hero site-hero--image" style="background-image:linear-gradient(110deg,rgba(10,29,50,.92),rgba(16,42,67,.76)),url('{{ asset('images/Atlantic-bg.webp') }}')" dir="rtl">
+    <p class="eyebrow">زموږ د کار لاره</p><h1>خدمات</h1><p>د روغنیاتو له انتخاب څخه تر رسونې پورې، موږ ستاسو د کار ملاتړ کوو.</p>
+</section>
+<section class="page-content" dir="rtl">
+    <div class="section-heading"><p class="eyebrow">د خدمتونو لړۍ</p><h2>ستاسو د فعالیت لپاره عملي ملاتړ</h2></div>
+    <div class="card-grid">
+        <article class="info-card"><i class="fas fa-industry" aria-hidden="true"></i><h3>صنعتي غوړ مواد</h3><p>د صنعتي ماشینونو لپاره لوړ کیفیت لرونکي غوړ مواد.</p></article>
+        <article class="info-card"><i class="fas fa-car" aria-hidden="true"></i><h3>موټري روغنیات</h3><p>د موټرو لپاره د اوږد عمر او غوره فعالیت لرونکي روغنیات.</p></article>
+        <article class="info-card"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i><h3>تخنیکي ملاتړ</h3><p>د فابریکو او صنعتي شرکتونو لپاره د محصولاتو د انتخاب لارښوونه.</p></article>
+        <article class="info-card"><i class="fas fa-truck" aria-hidden="true"></i><h3>تولید او عرضه</h3><p>د نړیوالو معیارونو مطابق محصولات او پر وخت عرضه.</p></article>
+    </div>
+    <div class="form-actions" style="justify-content:center;margin-top:2rem"><a class="button" href="{{ route('services.index') }}">د خدماتو لېست وګورئ</a></div>
+</section>
+@endsection
